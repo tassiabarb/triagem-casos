@@ -1,0 +1,9 @@
+// CONSULTA 2: contas com mais de 1 caso nos ultimos 30 dias
+// GROUP BY agrupa os casos por conta.
+// COUNT(Id) conta os casos de cada grupo.
+// HAVING filtra os grupos, depois de agrupar (o WHERE filtra linhas).
+SELECT AccountId, COUNT(Id) total
+FROM Case
+WHERE CreatedDate = LAST_N_DAYS:30 AND AccountId != null
+GROUP BY AccountId
+HAVING COUNT(Id) > 1

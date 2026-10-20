@@ -1,0 +1,8 @@
+// CONSULTA 1: casos abertos, ordenados por prioridade
+// IsClosed = false filtra só os abertos.
+// Owner.Name sobe pelo relacionamento e traz o nome do dono.
+// Em picklist, o ORDER BY segue a ordem de cadastro dos valores.
+SELECT CaseNumber, Subject, Status, Priority, Owner.Name
+FROM Case
+WHERE IsClosed = false
+ORDER BY Priority, CreatedDate DESC
