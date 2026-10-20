@@ -1,0 +1,7 @@
+// CONSULTA 3: casos em andamento com seus comentarios (subquery)
+// A consulta entre parenteses traz os filhos (comentarios) de cada caso.
+// Casos sem comentario aparecem com a lista de filhos vazia.
+SELECT CaseNumber, Subject,
+       (SELECT CommentBody, CreatedDate FROM CaseComments)
+FROM Case
+WHERE Status = 'Working'

@@ -1,0 +1,8 @@
+// CONSULTA 4: casos abertos sem interacao ha mais de 3 dias
+// LAST_N_DAYS:3 e uma constante de data do SOQL.
+// Casos com Data_Ultima_Interacao__c vazia nao entram nesta consulta.
+SELECT CaseNumber, Subject, Status, Data_Ultima_Interacao__c
+FROM Case
+WHERE IsClosed = false
+  AND Data_Ultima_Interacao__c < LAST_N_DAYS:3
+ORDER BY Data_Ultima_Interacao__c
